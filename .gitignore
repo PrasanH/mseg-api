@@ -10,3 +10,9 @@ temp_files/*
 
 # SLURM log files
 *.log
+
+save_folder/
+input_images/
+out/
+resized_images/
+output_images/
