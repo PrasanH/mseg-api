@@ -51,7 +51,7 @@ def test_label_transform() -> None:
     u_idx = ntc.uname2uid["motorcyclist"]
     assert ntc.uid2uname[u_idx] == "motorcyclist"
 
-    gt_u_label = np.ones((4, 4)).astype(np.int64) * u_idx
+    gt_u_label = np.ones((4, 4)).astype(int) * u_idx
     assert np.allclose(u_label.numpy(), gt_u_label)
 
 
@@ -73,7 +73,7 @@ def test_label_transform_unlabeled() -> None:
     # Get back the universal label
     u_label_map = ntc.transform_label(traind_label_map, dname)
     u_idx = IGNORE_LABEL
-    gt_u_label_map = np.ones((4, 4)).astype(np.int64) * u_idx
+    gt_u_label_map = np.ones((4, 4)).astype(int) * u_idx
     assert np.allclose(u_label_map.numpy(), gt_u_label_map)
 
 

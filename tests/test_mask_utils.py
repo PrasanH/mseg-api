@@ -306,7 +306,7 @@ def test_map_semantic_img_fast_pytorch_uint16_midsize_test():
 
 	Should take less than 1 millisecond.
 	"""
-	semantic_img = np.array(range(30)).reshape(5,6).astype(np.int16)
+	semantic_img = np.array(range(30)).reshape(5,6).astype(int)
 	semantic_img = torch.from_numpy(semantic_img).type(torch.LongTensor)
 
 	label_mapping = {}
@@ -340,7 +340,7 @@ def test_map_semantic_img_fast_pytorch_uint16_stress_test():
 
 	Should take less than 1 millisecond.
 	"""
-	semantic_img = np.array(range(60000)).reshape(3000,20).astype(np.int64)
+	semantic_img = np.array(range(60000)).reshape(3000,20).astype(int)
 	semantic_img = torch.from_numpy(semantic_img).type(torch.LongTensor)
 
 	label_mapping = {}
@@ -1154,7 +1154,7 @@ def test_get_polygons_from_binary_img1():
 			[3, 0],
 			[2, 0],
 			[1, 0]
-		], dtype=np.int32)
+		], dtype=int)
 	assert np.allclose(polygons[0], gt_poly)
 
 	class_idx = 1
@@ -1176,7 +1176,7 @@ def test_get_polygons_from_binary_img1():
 			[8, 0],
 			[7, 0],
 			[6, 0]
-		], dtype=np.int32)
+		], dtype=int)
 	assert np.allclose(polygons[0], gt_poly)
 
 	class_idx = 2
@@ -1198,7 +1198,7 @@ def test_get_polygons_from_binary_img1():
 			[3, 3],
 			[2, 3],
 			[1, 3]
-		], dtype=np.int32)
+		], dtype=int)
 	assert np.allclose(polygons[0], gt_poly)
 
 	class_idx = 3
@@ -1220,7 +1220,7 @@ def test_get_polygons_from_binary_img1():
 			[8, 3],
 			[7, 3],
 			[6, 3]
-		], dtype=np.int32)
+		], dtype=int)
 	assert np.allclose(polygons[0], gt_poly)
 	# --- FOR VISUALIZATION ---
 	# plt.imshow(label_map)
@@ -1284,7 +1284,7 @@ def test_get_polygons_from_binary_img2():
 			[10,  3],
 			[ 9,  3],
 			[ 8,  3]
-		], dtype=np.int32)
+		], dtype=int)
 
 	# left side circle
 	gt_poly2 = np.array(
@@ -1317,7 +1317,7 @@ def test_get_polygons_from_binary_img2():
 			[25,  3],
 			[24,  3],
 			[23,  3]
-		], dtype=np.int32)
+		], dtype=int)
 	assert np.allclose(polygons[1], gt_poly1)
 	assert np.allclose(polygons[0], gt_poly2)
 	
@@ -1415,7 +1415,7 @@ def test_get_polygons_from_binary_img2():
 			[ 3,  0],
 			[ 2,  0],
 			[ 1,  0]
-		], dtype=np.int32)
+		], dtype=int)
 	assert np.allclose(gt_poly_outer, polygons[0])
 
 	# # # --- FOR VISUALIZATION ---

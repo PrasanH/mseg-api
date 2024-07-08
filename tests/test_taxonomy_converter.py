@@ -134,7 +134,7 @@ def test_label_transform() -> None:
     # Get back the universal label
     u_label = tc.transform_label(traind_label, dname)
     u_idx = get_universal_class_names().index("motorcyclist")
-    gt_u_label = np.ones((4, 4)).astype(np.int64) * u_idx
+    gt_u_label = np.ones((4, 4)).astype(int) * u_idx
     assert np.allclose(u_label.numpy(), gt_u_label)
 
 
@@ -156,7 +156,7 @@ def test_label_transform_unlabeled() -> None:
     # Get back the universal label
     u_label = tc.transform_label(traind_label, dname)
     u_idx = IGNORE_LABEL
-    gt_u_label = np.ones((4, 4)).astype(np.int64) * u_idx
+    gt_u_label = np.ones((4, 4)).astype(int) * u_idx
     assert np.allclose(u_label.numpy(), gt_u_label)
 
 

@@ -35,7 +35,7 @@ def get_mean_mask_location(mask):
         coordinate of mean pixel location as (x,y)
     """
     coords = np.vstack(np.where(mask == 1)).T
-    return np.mean(coords, axis=0).astype(np.int32)
+    return np.mean(coords, axis=0).astype(int)
 
 
 def find_max_cardinality_mask(mask_list: List[np.ndarray]):
@@ -448,9 +448,9 @@ def highlight_binary_mask(label_mask: np.ndarray, img_rgb: Optional[np.ndarray] 
     assert label_mask.dtype in [
         np.uint8,
         np.uint16,
-        np.int32,
+        int,
         np.uint32,
-        np.int64,
+        int,
     ], "Label map is not composed of integers."
     assert img_rgb.dtype in [np.uint8, np.uint16]
     our_colormap = colormap(rgb=True)
@@ -761,9 +761,9 @@ def convert_instance_img_to_mask_img(instance_img: np.ndarray, img_rgb: Optional
     assert instance_img.dtype in [
         np.uint8,
         np.uint16,
-        np.int32,
+        int,
         np.uint32,
-        np.int64,
+        int,
     ], "Label map is not composed of integers."
     assert img_rgb.dtype in [np.uint8, np.uint16]
     our_colormap = colormap(rgb=True)
@@ -888,7 +888,7 @@ def get_np_mode(x: np.ndarray) -> int:
     Returns:
         integer representing mode of array values
     """
-    assert x.dtype in [np.uint8, np.uint16, np.int16, np.int32, np.int64]
+    assert x.dtype in [np.uint8, np.uint16, int,int, int]
     counts = np.bincount(x)
     return np.argmax(counts)
 
